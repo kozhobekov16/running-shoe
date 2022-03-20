@@ -1,0 +1,20 @@
+.sneakers {
+  padding: 50px 0px;
+
+  .searchBar {
+    position: relative;
+    input {
+      border: 1px solid #F3F3F3;
+      box-sizing: border-box;
+      border-radius: 10px;
+      outline: none;
+      padding: 6px 35px;
+    }
+    img {
+      position: absolute;
+      z-index: 10;
+      bottom: .6rem;
+      padding-left: .5rem;
+    }
+  }
+}

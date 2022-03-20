@@ -1,0 +1,37 @@
+.card {
+  padding: 60px 0px;
+
+  .block {
+    padding: 20px 20px;
+    border: 1px solid #F3F3F3;
+    box-sizing: border-box;
+    border-radius: 40px;
+    width: 230px;
+    transition: transform 1s;
+    .about {
+      img:first-child {
+        width: 20px;
+        cursor: pointer;
+      }
+
+      img:nth-child(2) {
+        width: 130px;
+      }
+    }
+    .price{
+      img{
+        cursor: pointer;
+        &:hover{
+          transform: rotate(360deg);
+          transition: .4s;
+        }
+      }
+    }
+    &:hover {
+      cursor: pointer;
+      transform: translateY(-4px);
+      transition: transform 1s;
+      box-shadow: 1px 2px 2px -1px gray;
+    }
+  }
+}
