@@ -1,4 +1,8 @@
 .basket {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
   .item {
     margin-top: 1.5rem;
     border: 1px solid #F3F3F3;

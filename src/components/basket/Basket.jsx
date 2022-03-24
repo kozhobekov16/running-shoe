@@ -1,22 +1,25 @@
 import React from 'react'
 import styles from './Basket.module.scss'
+import Button from "../../UI/Button/Button";
 function Basket() {
     return(
         <div className={styles.basket}>
             <div>
-                <p>Корзина</p>
-            </div>
-            <div className={styles.item}>
-                <ul>
-                    <li><img src="/images/1.jpg" alt="one"/></li>
-                    <li>
-                        <p>Мужские Кроссовки Nike Air Max 270</p>
-                        <b>12 999 руб.</b>
-                    </li>
-                    <li>
-                        <img src="/images/plus.svg" alt="l"/>
-                    </li>
-                </ul>
+                <div>
+                    <p>Корзина</p>
+                </div>
+                <div className={styles.item}>
+                    <ul>
+                        <li><img src="/images/1.jpg" alt="one"/></li>
+                        <li>
+                            <p>Мужские Кроссовки Nike Air Max 270</p>
+                            <b>12 999 руб.</b>
+                        </li>
+                        <li>
+                            <img src="/images/plus.svg" alt="l"/>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div className={styles.order}>
                 <ul>
@@ -29,7 +32,7 @@ function Basket() {
                     <li></li>
                     <li>1074 руб.  </li>
                 </ul>
-                <button className={styles.btn}>Оформить заказ</button>
+                <Button/>
             </div>
 
         </div>
