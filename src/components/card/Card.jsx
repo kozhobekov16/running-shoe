@@ -1,7 +1,12 @@
 import React from 'react'
 import styles from './Card.module.scss'
+
 function Card() {
-    return(
+    const [isAdded, setIsAdded] = React.useState(false)
+    const activeChecked = () => {
+        setIsAdded(!isAdded)
+    }
+    return (
         <div className={styles.card}>
             <div className={styles.block}>
                 <div className={styles.about}>
@@ -15,11 +20,16 @@ function Card() {
                         <strong>12 999 руб.</strong>
                     </li>
                     <li>
-                        <img className="w-5" src="/images/plus.svg" alt="plus"/>
+                        <img
+                            className="w-5"
+                            onClick={activeChecked}
+                            src={!isAdded ? "/images/plus.svg" : "/images/checked.svg"}
+                             alt="plus"/>
                     </li>
                 </ul>
             </div>
         </div>
     )
 }
+
 export default Card

@@ -1,6 +1,6 @@
-.App {
+body {
   background: #e7f6ff;
-  height: auto;
+  height: 100%;
   padding: 50px;
 }
 
@@ -15,13 +15,21 @@
 
 .basket {
   position: absolute;
-  right: 0;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
   top: 0;
+  left: 0;
+  height: 100%;
+}
+
+.basketChild {
   background: #FFFFFF;
-  box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
-  height: auto;
+  position: absolute;
   width: 385px;
-  padding: 30px;
-  height: auto;
+  padding: 0px 14px;
+  right: 0;
+  box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
   border-radius: 0 0px 10px 10px;
+  height: 100%;
 }

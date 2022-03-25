@@ -3,6 +3,7 @@
   flex-direction: column;
   height: 100vh;
   justify-content: space-between;
+  padding: 10px 4px 70px 4px;
   .item {
     margin-top: 1.5rem;
     border: 1px solid #F3F3F3;
@@ -37,8 +38,8 @@
   }
 
   .order {
+    position: relative;
     margin-top: 2rem;
-
     ul:first-child {
       display: flex;
       justify-content: space-between;
