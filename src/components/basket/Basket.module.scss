@@ -4,6 +4,25 @@
   height: 100vh;
   justify-content: space-between;
   padding: 10px 4px 70px 4px;
+  .title{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding-top: 1.5rem;
+    p{
+      font-size: 22px;
+    }
+    img{
+      transform: rotate(45deg);
+      width: 30px;
+      cursor: pointer;
+      transition: .4s ease-in;
+      &:hover{
+        transition: .1s ease-in;
+        transform: rotate(135deg);
+      }
+    }
+  }
   .item {
     margin-top: 1.5rem;
     border: 1px solid #F3F3F3;

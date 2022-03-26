@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Header() {
+function Header({activeOpenBasket}) {
     return (
         <div className='flex justify-between items-center'>
             <div className="flex items-center">
@@ -15,7 +15,7 @@ function Header() {
             <div className='flex items-center gap-2'>
                 <div className="flex gap-2 items-center">
                     <span>
-                        <img src="/images/basket.svg" alt="basket"/>
+                        <img onClick={activeOpenBasket} src="/images/basket.svg" alt="basket"/>
                     </span>
                     <span>
                         <p className="text-sm">1205 руб.</p>

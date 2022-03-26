@@ -1,17 +1,22 @@
+import React from 'react'
 import './App.scss';
 import {Basket, Header, Sneakers} from "./components";
 
 function App() {
+    const [activeBasket, setActiveBasket] = React.useState(false)
+    const activeOpenBasket = () => {
+        setActiveBasket(!activeBasket)
+    }
     return (
         <div className="App">
             <div className="main">
-                <Header/>
+                <Header activeOpenBasket={activeOpenBasket}/>
                 <Sneakers/>
-                <div className="basket" style={{display: 'none'}}>
+                {activeBasket && <div className="basket">
                     <div className="basketChild">
-                        <Basket/>
+                        <Basket setActiveBasket={setActiveBasket}/>
                     </div>
-                </div>
+                </div>}
             </div>
         </div>
     );
