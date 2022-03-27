@@ -4,14 +4,7 @@ import {Basket, Header, Sneakers} from "./components";
 
 function App() {
     const [data, setData] = React.useState([])
-    const [card, setCard] = React.useState([
-        {
-            "name": "Мужские Кроссовки Nike Blazer Mid Suede",
-            "img": "/images/sneakers/image 1.jpg",
-            "id": "1",
-            "price": "12 999 руб."
-        }
-    ])
+    const [card, setCard] = React.useState([])
     React.useEffect(() => {
         fetch('https://62402a320adaf66ad74a7eba.mockapi.io/sneakers')
             .then(resp => resp.json())

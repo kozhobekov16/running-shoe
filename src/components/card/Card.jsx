@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styles from './Card.module.scss'
 
 function Card({elem, addToBasket}) {
@@ -7,11 +7,17 @@ function Card({elem, addToBasket}) {
         addToBasket(elem)
         setIsAdded(!isAdded)
     }
+    const [heart, setHeart] = useState(false)
+    const addToFavorite = () => {
+        setHeart(!heart)
+    }
     return (
         <div className={styles.card}>
             <div className={styles.block}>
                 <div className={styles.about}>
-                    <img src="/images/heartUnLike.svg" alt="liked"/>
+                    <img
+                        onClick={addToFavorite}
+                        src={!heart ? "/images/heartUnLike.svg" : '/images/liked.svg'} alt="liked"/>
                     <img src={elem.img} alt="1"/>
                     <p>{elem.name}</p>
                 </div>
