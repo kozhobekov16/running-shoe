@@ -1,9 +1,10 @@
 import React from 'react'
 import styles from './Card.module.scss'
 
-function Card({elem}) {
+function Card({elem, addToBasket}) {
     const [isAdded, setIsAdded] = React.useState(false)
     const activeChecked = () => {
+        addToBasket(elem)
         setIsAdded(!isAdded)
     }
     return (

@@ -24,11 +24,15 @@ function App() {
     const closeBasket = () => {
         setActiveBasket(false)
     }
+    const addToBasket = (elem) => {
+        setCard([...card, elem])
+    }
+    console.log(card)
     return (
         <div className="App">
             <div className="main">
                 <Header activeOpenBasket={activeOpenBasket}/>
-                <Sneakers data={data}/>
+                <Sneakers data={data} addToBasket={addToBasket}/>
                 <div className={activeBasket ? 'basket' : 'noneBasket'}>
                     <div className="basketChild">
                         <Basket

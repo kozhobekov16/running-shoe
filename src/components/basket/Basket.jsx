@@ -16,7 +16,7 @@ function Basket({closeBasket, card}) {
                 </div>
                 <div className={styles.item}>
                     {card.map(cardItem => (
-                        <ul>
+                        <ul key={cardItem.id}>
                             <li>
                                 <img src={cardItem.img} alt={cardItem.name}/></li>
                             <li>

@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Sneakers.module.scss'
 import {Card} from "../../components";
 
-function Sneakers({data}) {
+function Sneakers({data, addToBasket}) {
     return (
         <div className={styles.sneakers}>
             <div className={`title flex items-center justify-between ${styles.searchBar}`}>
@@ -15,7 +15,7 @@ function Sneakers({data}) {
             <div className="flex flex-wrap gap-3 mt-10">
                 {data.map(elem => (
                     <div key={elem.id}>
-                        <Card elem={elem}/>
+                        <Card elem={elem} addToBasket={addToBasket}/>
                     </div>
                 ))}
             </div>
