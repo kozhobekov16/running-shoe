@@ -1,5 +1,5 @@
 import React from 'react'
-
+import styles from './Header.module.scss'
 function Header({activeOpenBasket}) {
     return (
         <div className='flex justify-between items-center'>
@@ -13,7 +13,7 @@ function Header({activeOpenBasket}) {
                 </div>
             </div>
             <div className='flex items-center gap-2'>
-                <div className="flex gap-2 items-center">
+                <div className={`flex gap-2 items-center ${styles.basketCard}`}>
                     <span>
                         <img onClick={activeOpenBasket} src="/images/basket.svg" alt="basket"/>
                     </span>

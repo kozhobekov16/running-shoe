@@ -2,10 +2,7 @@ import React from 'react'
 import styles from './Basket.module.scss'
 import Button from "../../UI/Button/Button";
 
-function Basket({setActiveBasket}) {
-    const closeBasket = () => {
-        setActiveBasket(false)
-    }
+function Basket({closeBasket, card}) {
     return (
         <div className={styles.basket}>
             <div>
@@ -18,16 +15,19 @@ function Basket({setActiveBasket}) {
                     </div>
                 </div>
                 <div className={styles.item}>
-                    <ul>
-                        <li><img src="/images/1.jpg" alt="one"/></li>
-                        <li>
-                            <p>Мужские Кроссовки Nike Air Max 270</p>
-                            <b>12 999 руб.</b>
-                        </li>
-                        <li>
-                            <img src="/images/plus.svg" alt="l"/>
-                        </li>
-                    </ul>
+                    {card.map(cardItem => (
+                        <ul>
+                            <li>
+                                <img src={cardItem.img} alt={cardItem.name}/></li>
+                            <li>
+                                <p>{cardItem.name}</p>
+                                <b>{cardItem.price}</b>
+                            </li>
+                            <li>
+                                <img src="/images/plus.svg" alt="l"/>
+                            </li>
+                        </ul>
+                    ))}
                 </div>
             </div>
             <div className={styles.order}>

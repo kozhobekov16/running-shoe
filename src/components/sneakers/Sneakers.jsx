@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Sneakers.module.scss'
 import {Card} from "../../components";
 
-function Sneakers() {
+function Sneakers({data}) {
     return (
         <div className={styles.sneakers}>
             <div className={`title flex items-center justify-between ${styles.searchBar}`}>
@@ -12,11 +12,12 @@ function Sneakers() {
                     <input type="text" placeholder="Поиск..."/>
                 </div>
             </div>
-            <div className="flex flex-wrap gap-3">
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
+            <div className="flex flex-wrap gap-3 mt-10">
+                {data.map(elem => (
+                    <div key={elem.id}>
+                        <Card elem={elem}/>
+                    </div>
+                ))}
             </div>
         </div>
     )
