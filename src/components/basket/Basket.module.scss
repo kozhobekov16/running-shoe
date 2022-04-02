@@ -24,16 +24,16 @@
     }
   }
   .item {
-    margin-top: 1.5rem;
-    border: 1px solid #F3F3F3;
     box-sizing: border-box;
-    border-radius: 20px;
-    padding: 20px;
-
+    height: 370px;
+    overflow-y: scroll;
     ul {
       display: flex;
       gap: 1rem;
-
+      border: 1px solid #F3F3F3;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: .4rem;
       li:first-child {
         img {
           width: 120px;

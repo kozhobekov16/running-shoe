@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Basket.module.scss'
 import Button from "../../UI/Button/Button";
 
-function Basket({closeBasket, card}) {
+function Basket({closeBasket, card, removeProduct}) {
     return (
         <div className={styles.basket}>
             <div>
@@ -24,7 +24,7 @@ function Basket({closeBasket, card}) {
                                 <b>{cardItem.price}</b>
                             </li>
                             <li>
-                                <img src="/images/plus.svg" alt="l"/>
+                                <img onClick={() => removeProduct(cardItem.id)} src="/images/plus.svg" alt="l"/>
                             </li>
                         </ul>
                     ))}
