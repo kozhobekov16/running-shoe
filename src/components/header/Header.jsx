@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './Header.module.scss'
+import {NavLink} from 'react-router-dom'
 function Header({activeOpenBasket}) {
     return (
         <div className='flex justify-between items-center'>
@@ -23,7 +24,9 @@ function Header({activeOpenBasket}) {
                 </div>
                 <ul className="p-0 flex gap-2">
                     <li>
-                        <img src="/images/heartUnLike.svg" alt="heart"/>
+                        <NavLink to='/likes'>
+                            <img src="/images/heartUnLike.svg" alt="heart"/>
+                        </NavLink>
                     </li>
                     <li>
                         <img src="/images/user.svg" alt="user"/>

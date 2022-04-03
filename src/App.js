@@ -2,6 +2,8 @@ import React from 'react'
 import './App.scss';
 import {Basket, Header, Sneakers} from "./components";
 import axios from "axios";
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import {Chosen} from "./pages";
 
 function App() {
     const [data, setData] = React.useState([])
@@ -26,26 +28,36 @@ function App() {
     }
 
     const removeProduct = (id) => {
+        axios.delete(`https://62402a320adaf66ad74a7eba.mockapi.io/inBasket/${id}`)
         setCard(prev => prev.filter(elem => elem.id !== id))
     }
+
     return (
-        <div className="App">
-            <div className="main">
-                <Header activeOpenBasket={activeOpenBasket}/>
-                <Sneakers data={data} addToBasket={addToBasket}/>
-                <div className={activeBasket ? 'basket' : 'noneBasket'}>
-                    <div className="basketChild">
-                        <Basket
-                            setActiveBasket={setActiveBasket}
-                            activeBasket={activeBasket}
-                            closeBasket={closeBasket}
-                            card={card}
-                            removeProduct={removeProduct}
-                        />
+        <BrowserRouter>
+            <div className="App">
+                <div className="main">
+                    <Header activeOpenBasket={activeOpenBasket}/>
+                    <Routes>
+                        <Route path='/likes' element={<Chosen/>}/>
+                    </Routes>
+                    <div>
+                        <Sneakers data={data} addToBasket={addToBasket}/>
+                        <div className={activeBasket ? 'basket' : 'noneBasket'}>
+                            <div className="basketChild">
+                                <Basket
+                                    setActiveBasket={setActiveBasket}
+                                    activeBasket={activeBasket}
+                                    closeBasket={closeBasket}
+                                    card={card}
+                                    removeProduct={removeProduct}
+                                />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </BrowserRouter>
+
     );
 }
 

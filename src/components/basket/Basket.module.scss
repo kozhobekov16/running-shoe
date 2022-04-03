@@ -4,29 +4,35 @@
   height: 100vh;
   justify-content: space-between;
   padding: 10px 4px 70px 4px;
-  .title{
+
+  .title {
     display: flex;
     justify-content: space-between;
     align-content: center;
     padding-top: 1.5rem;
-    p{
+
+    p {
       font-size: 22px;
     }
-    img{
+
+    img {
       transform: rotate(45deg);
       width: 30px;
       cursor: pointer;
       transition: .4s ease-in;
-      &:hover{
+
+      &:hover {
         transition: .1s ease-in;
         transform: rotate(135deg);
       }
     }
   }
+
   .item {
     box-sizing: border-box;
     height: 370px;
     overflow-y: scroll;
+
     ul {
       display: flex;
       gap: 1rem;
@@ -34,6 +40,7 @@
       padding: 20px;
       border-radius: 10px;
       margin-top: .4rem;
+
       li:first-child {
         img {
           width: 120px;
@@ -56,9 +63,47 @@
     }
   }
 
+  .empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5rem;
+
+    img {
+      width: 300px;
+    }
+
+    .return {
+      position: relative;
+
+      img {
+        top: 6rem;
+        left: .7rem;
+        width: 15px;
+        position: absolute;
+      }
+
+      button {
+        background-color: #9DD458;
+        margin-top: 5rem;
+        color: white;
+        padding: 8px 30px;
+        outline: none;
+        border-radius: 10px;
+
+        &:hover {
+          transition: .4s;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        }
+      }
+    }
+  }
+
   .order {
     position: relative;
     margin-top: 2rem;
+
     ul:first-child {
       display: flex;
       justify-content: space-between;
