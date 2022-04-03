@@ -1,9 +1,9 @@
 import React from 'react'
 import './App.scss';
-import {Basket, Header, Sneakers} from "./components";
+import {Header} from "./components";
 import axios from "axios";
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import {Chosen} from "./pages";
+import {Chosen, HomePage} from "./pages";
 
 function App() {
     const [data, setData] = React.useState([])
@@ -39,21 +39,16 @@ function App() {
                     <Header activeOpenBasket={activeOpenBasket}/>
                     <Routes>
                         <Route path='/likes' element={<Chosen/>}/>
+                        <Route path='/' element={<HomePage
+                            data={data}
+                            addToBasket={addToBasket}
+                            closeBasket={closeBasket}
+                            removeProduct={removeProduct}
+                            card={card}
+                            activeBasket={activeBasket}
+                            setActiveBasket={setActiveBasket}
+                        />}/>
                     </Routes>
-                    <div>
-                        <Sneakers data={data} addToBasket={addToBasket}/>
-                        <div className={activeBasket ? 'basket' : 'noneBasket'}>
-                            <div className="basketChild">
-                                <Basket
-                                    setActiveBasket={setActiveBasket}
-                                    activeBasket={activeBasket}
-                                    closeBasket={closeBasket}
-                                    card={card}
-                                    removeProduct={removeProduct}
-                                />
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </BrowserRouter>

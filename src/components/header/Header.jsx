@@ -1,12 +1,19 @@
 import React from 'react'
 import styles from './Header.module.scss'
 import {NavLink} from 'react-router-dom'
+
 function Header({activeOpenBasket}) {
     return (
         <div className='flex justify-between items-center'>
             <div className="flex items-center">
                 <div>
-                    <img src="/images/logo.svg" alt="logo" className="mr-2"/>
+                    <NavLink to='/'>
+                        <img
+                            src="/images/logo.svg"
+                            alt="logo"
+                            className="mr-2"
+                        />
+                    </NavLink>
                 </div>
                 <div>
                     <strong className="uppercase">Online Store Sneakers</strong>
