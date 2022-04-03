@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.scss';
-import {Header} from "./components";
+import {Basket, Header} from "./components";
 import axios from "axios";
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import {Chosen, HomePage} from "./pages";
@@ -49,6 +49,17 @@ function App() {
                             setActiveBasket={setActiveBasket}
                         />}/>
                     </Routes>
+                    <div className={activeBasket ? 'basket' : 'noneBasket'}>
+                        <div className="basketChild">
+                            <Basket
+                                setActiveBasket={setActiveBasket}
+                                activeBasket={activeBasket}
+                                closeBasket={closeBasket}
+                                card={card}
+                                removeProduct={removeProduct}
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
         </BrowserRouter>
