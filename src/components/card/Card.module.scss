@@ -7,7 +7,7 @@
     box-sizing: border-box;
     border-radius: 40px;
     width: 230px;
-    transition: transform 1s;
+    transition: transform .5s;
     .about {
       img:first-child {
         width: 20px;
@@ -30,7 +30,7 @@
     &:hover {
       cursor: pointer;
       transform: translateY(-4px);
-      transition: transform 1s;
+      transition: transform .5s;
       box-shadow: 1px 2px 2px -1px gray;
     }
   }

@@ -5,7 +5,7 @@ import Button from "../../UI/Button/Button";
 function Basket({closeBasket, card, removeProduct}) {
     return (
         <div className={styles.basket}>
-            <div>
+            <div className={styles.basketPlace}>
                 <div>
                     <div className={styles.title}>
                         <div>

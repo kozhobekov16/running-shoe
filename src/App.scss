@@ -3,6 +3,7 @@ body {
   background: #e7f6ff;
   height: 100%;
   padding: 50px;
+  box-sizing: border-box;
 }
 
 .main {
@@ -24,6 +25,16 @@ body {
   height: 100%;
   transition: 1s;
   transform: translateX(-1300);
+  visibility: visible;
+}
+
+.noneBasket {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  transition: .8s;
+  visibility: hidden;
 }
 
 .basketChild {
@@ -37,9 +48,3 @@ body {
   height: 100%;
 }
 
-.noneBasket {
-  position: absolute;
-  top: 0;
-  transform: translateX(1580px);
-  transition: .4s;
-}

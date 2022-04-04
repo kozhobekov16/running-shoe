@@ -6,7 +6,6 @@ const HomePage = (props) => {
     return (
         <div>
             <Sneakers data={data} addToBasket={addToBasket}/>
-
         </div>
     );
 };

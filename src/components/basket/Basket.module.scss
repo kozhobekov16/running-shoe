@@ -1,9 +1,6 @@
 .basket {
-  display: flex;
-  flex-direction: column;
   height: 100vh;
-  justify-content: space-between;
-  padding: 10px 4px 70px 4px;
+  padding: 10px 4px 20px 4px;
 
   .title {
     display: flex;
@@ -30,7 +27,7 @@
 
   .item {
     box-sizing: border-box;
-    height: 370px;
+    height: 550px;
     overflow-y: scroll;
 
     ul {
@@ -69,6 +66,7 @@
     align-items: center;
     flex-direction: column;
     margin-top: 5rem;
+    text-align: center;
 
     img {
       width: 300px;
@@ -100,6 +98,12 @@
     }
   }
 
+  .basketPlace {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
   .order {
     position: relative;
     margin-top: 2rem;
@@ -128,7 +132,6 @@
         border: 1px dashed;
         display: inline-block;
         width: 53%;
-        margin-top: .6rem;
       }
     }
   }
