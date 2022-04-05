@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './App.scss';
 import {Basket, Header} from "./components";
 import axios from "axios";
@@ -8,23 +8,32 @@ import {Chosen, HomePage} from "./pages";
 function App() {
     const [data, setData] = React.useState([])
     const [card, setCard] = React.useState([])
+    const [likeCard, setLikeCard] = useState([])
+
     React.useEffect(() => {
         axios.get('https://62402a320adaf66ad74a7eba.mockapi.io/sneakers')
             .then(resp => setData(resp.data))
         axios.get('https://62402a320adaf66ad74a7eba.mockapi.io/inBasket')
             .then(data => setCard(data.data))
     }, [])
+
     const [activeBasket, setActiveBasket] = React.useState(false)
 
     const addToBasket = (elem) => {
         axios.post('https://62402a320adaf66ad74a7eba.mockapi.io/inBasket', elem)
         setCard([...card, elem])
     }
+
     const activeOpenBasket = () => {
         setActiveBasket(!activeBasket)
     }
+
     const closeBasket = () => {
         setActiveBasket(false)
+    }
+
+    const addToChosen = (elem) => {
+        setLikeCard([...likeCard, elem])
     }
 
     const removeProduct = (id) => {
@@ -38,16 +47,25 @@ function App() {
                 <div className="main">
                     <Header activeOpenBasket={activeOpenBasket}/>
                     <Routes>
-                        <Route path='/likes' element={<Chosen/>}/>
-                        <Route path='/' element={<HomePage
-                            data={data}
-                            addToBasket={addToBasket}
-                            closeBasket={closeBasket}
-                            removeProduct={removeProduct}
-                            card={card}
-                            activeBasket={activeBasket}
-                            setActiveBasket={setActiveBasket}
-                        />}/>
+                        <Route path='/likes'
+                               element={<Chosen
+                                   data={data}
+                                   likeCard={likeCard}
+                                   data={data}
+                                   setLikeCard={setLikeCard}
+                               />}/>
+                        <Route
+                            path='/'
+                            element={
+                                <HomePage
+                                    data={data}
+                                    addToBasket={addToBasket}
+                                    closeBasket={closeBasket}
+                                    card={card}
+                                    activeBasket={activeBasket}
+                                    setActiveBasket={setActiveBasket}
+                                    addToChosen={addToChosen}
+                                />}/>
                     </Routes>
                     <div className={activeBasket ? 'basket' : 'noneBasket'}>
                         <div className="basketChild">

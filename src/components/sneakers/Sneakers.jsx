@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import styles from './Sneakers.module.scss'
 import {Card} from "../../components";
 
-function Sneakers({data, addToBasket}) {
+function Sneakers({data, addToBasket, addToChosen}) {
     const [value, setValue] = useState('')
     const changeHandler = e => {
         setValue(e.target.value)
@@ -27,7 +27,11 @@ function Sneakers({data, addToBasket}) {
             <div className="flex flex-wrap gap-3 mt-10">
                 {search.map(elem => (
                     <div key={elem.id}>
-                        <Card elem={elem} addToBasket={addToBasket}/>
+                        <Card
+                            elem={elem}
+                            addToBasket={addToBasket}
+                            addToChosen={addToChosen}
+                        />
                     </div>
                 ))}
             </div>
