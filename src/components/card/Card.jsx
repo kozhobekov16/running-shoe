@@ -2,8 +2,9 @@ import React, {useState} from 'react'
 import styles from './Card.module.scss'
 import checked from "../../assets/images/checked.svg"
 import like from '../../assets/images/liked.svg'
-function Card({elem, addToBasket, addToChosen}) {
-    const [isAdded, setIsAdded] = React.useState(checked)
+
+function Card({elem, addToBasket, addToChosen, added}) {
+    const [isAdded, setIsAdded] = React.useState(added)
 
     const activeChecked = () => {
         addToBasket(elem)
@@ -34,7 +35,7 @@ function Card({elem, addToBasket, addToChosen}) {
                         <img
                             className="w-5"
                             onClick={activeChecked}
-                            src={isAdded ? "/images/plus.svg" : "/images/checked.svg"}
+                            src={!isAdded ? "/images/plus.svg" : "/images/checked.svg"}
                             alt="plus"
                         />
                     </li>

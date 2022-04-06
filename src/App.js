@@ -9,6 +9,7 @@ function App() {
     const [data, setData] = React.useState([])
     const [card, setCard] = React.useState([])
     const [likeCard, setLikeCard] = useState([])
+    const [loading, setLoading] = useState(false)
 
     React.useEffect(() => {
         axios.get('https://62402a320adaf66ad74a7eba.mockapi.io/sneakers')
@@ -17,6 +18,9 @@ function App() {
             .then(data => setCard(data.data))
         axios.get('https://62402a320adaf66ad74a7eba.mockapi.io/likes')
             .then(response => setLikeCard(response.data))
+        setTimeout(() => {
+            setLoading(true)
+        }, 500)
     }, [])
 
     const [activeBasket, setActiveBasket] = React.useState(false)
@@ -25,7 +29,7 @@ function App() {
         try {
             if (card.find(prod => Number(prod.id) === Number(elem.id))) {
                 setCard(item => item.filter(item => Number(item.id) !== Number(elem.id)))
-                removeProduct()
+                axios.delete(`https://62402a320adaf66ad74a7eba.mockapi.io/inBasket/${elem.id}`)
             } else {
                 await axios.post('https://62402a320adaf66ad74a7eba.mockapi.io/inBasket', elem)
                 setCard([...card, elem])
@@ -92,6 +96,7 @@ function App() {
                                     activeBasket={activeBasket}
                                     setActiveBasket={setActiveBasket}
                                     addToChosen={addToChosen}
+                                    loading={loading}
                                 />}/>
                     </Routes>
                     <div className={activeBasket ? 'basket' : 'noneBasket'}>
