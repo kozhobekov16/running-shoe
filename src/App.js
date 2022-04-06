@@ -15,6 +15,8 @@ function App() {
             .then(resp => setData(resp.data))
         axios.get('https://62402a320adaf66ad74a7eba.mockapi.io/inBasket')
             .then(data => setCard(data.data))
+        axios.get('https://62402a320adaf66ad74a7eba.mockapi.io/likes')
+            .then(response => setLikeCard(response.data))
     }, [])
 
     const [activeBasket, setActiveBasket] = React.useState(false)
@@ -24,16 +26,22 @@ function App() {
         setCard([...card, elem])
     }
 
+    const addToChosen = (elem) => {
+        axios.post('https://62402a320adaf66ad74a7eba.mockapi.io/likes', elem)
+        setLikeCard([...likeCard, elem])
+    }
+
+    const handleUnliked = (id) => {
+        axios.delete(`https://62402a320adaf66ad74a7eba.mockapi.io/likes/${id}`)
+        setLikeCard(prev => prev.filter(item => item.id !== id))
+    }
+
     const activeOpenBasket = () => {
         setActiveBasket(!activeBasket)
     }
 
     const closeBasket = () => {
         setActiveBasket(false)
-    }
-
-    const addToChosen = (elem) => {
-        setLikeCard([...likeCard, elem])
     }
 
     const removeProduct = (id) => {
@@ -53,6 +61,8 @@ function App() {
                                    likeCard={likeCard}
                                    data={data}
                                    setLikeCard={setLikeCard}
+                                   addToBasket={addToBasket}
+                                   handleUnliked={handleUnliked}
                                />}/>
                         <Route
                             path='/'

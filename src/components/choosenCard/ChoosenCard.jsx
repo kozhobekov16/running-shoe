@@ -1,8 +1,13 @@
 import React, {useState} from 'react';
 import styles from "./ChoosenCard.module.scss";
 import like from '../../assets/images/liked.svg'
-const ChoosenCard = ({elem, handleUnliked}) => {
+const ChoosenCard = ({elem, handleUnliked, addToBasket}) => {
     const [heart, setHeart] = useState(like)
+    const [checked, setChecked] = useState(false)
+    const handleToBasket = () => {
+        setChecked(!checked)
+        addToBasket(elem)
+    }
     const addToFavorite = (id) => {
         setHeart(!heart)
         handleUnliked(id)
@@ -33,8 +38,9 @@ const ChoosenCard = ({elem, handleUnliked}) => {
                                 </li>
                                 <li>
                                     <img
+                                        onClick={handleToBasket}
                                         className="w-5"
-                                        src={"/images/plus.svg"}
+                                        src={!checked ? "/images/plus.svg" : "/images/checked.svg"}
                                         alt="plus"
                                     />
                                 </li>

@@ -3,10 +3,8 @@ import {NavLink} from 'react-router-dom'
 import ChoosenCard from "../../components/choosenCard/ChoosenCard";
 
 const Chosen = (props) => {
-    const {likeCard, setLikeCard} = props
-    const handleUnliked = (id) => {
-        setLikeCard(prev => prev.filter(item => item.id !== id))
-    }
+    const {likeCard, addToBasket, handleUnliked} = props
+
     return (
         <div>
             <div className='flex items-center gap-4 pt-4'>
@@ -23,7 +21,10 @@ const Chosen = (props) => {
                         <ChoosenCard
                             key={elem.id}
                             elem={elem}
-                            likeCard={likeCard} handleUnliked={handleUnliked}/>
+                            likeCard={likeCard}
+                            handleUnliked={handleUnliked}
+                            addToBasket={addToBasket}
+                        />
                     </div>
                 ))}
             </div>
