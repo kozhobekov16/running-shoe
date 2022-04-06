@@ -26,12 +26,13 @@ function Basket({closeBasket, card, removeProduct}) {
                                         <b>{cardItem.price}</b>
                                     </li>
                                     <li>
-                                        <img onClick={() => removeProduct(cardItem.id)} src="/images/plus.svg" alt="l"/>
+                                        <img onClick={() => removeProduct(cardItem.id)} src="/images/plus.svg" alt="plus"/>
                                     </li>
                                 </ul>
                             ))}
                         </div>
-                        : <div className={styles.empty}>
+                        :
+                        <div className={styles.empty}>
                             <div>
                                 <img src='/images/basketEmpty.png' alt="empty"/>
                             </div>

@@ -23,8 +23,9 @@ function App() {
 
     const addToBasket = async (elem) => {
         try {
-            if (card.find(prod => prod.id === elem.id)) {
-                setCard(item => item.filter(item => item.id !== elem.id))
+            if (card.find(prod => Number(prod.id) === Number(elem.id))) {
+                setCard(item => item.filter(item => Number(item.id) !== Number(elem.id)))
+                removeProduct()
             } else {
                 await axios.post('https://62402a320adaf66ad74a7eba.mockapi.io/inBasket', elem)
                 setCard([...card, elem])
@@ -50,10 +51,12 @@ function App() {
     const closeBasket = () => {
         setActiveBasket(false)
     }
+
     const addToChosen = async (elem) => {
         try {
-            if (likeCard.find(item => item.id === elem.id)) {
-                setLikeCard(prev => prev.filter(thing => thing.id !== elem.id))
+            if (likeCard.find(item => Number(item.id) === Number(elem.id))) {
+                setLikeCard(prev => prev.filter(thing => Number(thing.id) !== Number(elem.id)))
+                handleUnliked()
             } else {
                 await axios.post('https://62402a320adaf66ad74a7eba.mockapi.io/likes', elem)
                 setLikeCard([...likeCard, elem])
