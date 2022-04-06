@@ -21,16 +21,16 @@ function Header({activeOpenBasket}) {
                         </div>
                     </div>
                 </NavLink>
-                <div className='flex items-center gap-2'>
-                    <div className={`flex gap-2 items-center ${styles.basketCard}`}>
+                <div className='flex items-center gap-4'>
+                    <div className={`flex gap-4 items-center ${styles.basketCard}`}>
                     <span>
                         <img onClick={activeOpenBasket} src="/images/basket.svg" alt="basket"/>
                     </span>
                         <span>
-                        <p className="text-sm">1205 руб.</p>
-                    </span>
+                            <p className="text-sm">1205 руб.</p>
+                        </span>
                     </div>
-                    <ul className="p-0 flex gap-2">
+                    <ul className="p-0 flex gap-4">
                         <li>
                             <NavLink to='/likes'>
                                 <img

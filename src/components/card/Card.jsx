@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import styles from './Card.module.scss'
 import checked from "../../assets/images/checked.svg"
-
+import like from '../../assets/images/liked.svg'
 function Card({elem, addToBasket, addToChosen}) {
     const [isAdded, setIsAdded] = React.useState(checked)
 
@@ -9,7 +9,7 @@ function Card({elem, addToBasket, addToChosen}) {
         addToBasket(elem)
         setIsAdded(!isAdded)
     }
-    const [heart, setHeart] = useState(false)
+    const [heart, setHeart] = useState(like)
 
     const addToFavorite = () => {
         setHeart(!heart)
@@ -21,7 +21,7 @@ function Card({elem, addToBasket, addToChosen}) {
                 <div className={styles.about}>
                     <img
                         onClick={addToFavorite}
-                        src={!heart ? "/images/heartUnLike.svg" : '/images/liked.svg'} alt="liked"/>
+                        src={heart ? "/images/heartUnLike.svg" : '/images/liked.svg'} alt="liked"/>
                     <img src={elem.img} alt="1"/>
                     <p>{elem.name}</p>
                 </div>

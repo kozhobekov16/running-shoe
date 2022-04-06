@@ -4,7 +4,6 @@ import ChoosenCard from "../../components/choosenCard/ChoosenCard";
 
 const Chosen = (props) => {
     const {likeCard, addToBasket, handleUnliked} = props
-
     return (
         <div>
             <div className='flex items-center gap-4 pt-4'>
@@ -21,7 +20,6 @@ const Chosen = (props) => {
                         <ChoosenCard
                             key={elem.id}
                             elem={elem}
-                            likeCard={likeCard}
                             handleUnliked={handleUnliked}
                             addToBasket={addToBasket}
                         />
