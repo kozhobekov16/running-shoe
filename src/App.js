@@ -20,7 +20,7 @@ function App() {
             .then(response => setLikeCard(response.data))
         setTimeout(() => {
             setLoading(true)
-        }, 500)
+        }, 1000)
     }, [])
 
     const [activeBasket, setActiveBasket] = React.useState(false)

@@ -1,0 +1,15 @@
+button {
+  background-color: #9DD458;
+  border-radius: 18px;
+  padding: 9px 14px;
+  color: white;
+  margin-top: 1rem;
+  width: 100%;
+  position: relative;
+  transition: .4s;
+  &:hover{
+    box-shadow: 0 0 4px black;
+    transition: .4s;
+    transform: scale(1.1);
+  }
+}
