@@ -1,9 +1,11 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import styles from './Sneakers.module.scss'
 import {Card} from "../../components";
 import ContentLoader from "react-content-loader"
+import AppContext from "../../context";
 
-function Sneakers({data, addToBasket, loading, addToChosen, card}) {
+function Sneakers() {
+    const {data, addToBasket, loading, addToChosen, card} = useContext(AppContext)
     const [value, setValue] = useState('')
     const changeHandler = e => {
         setValue(e.target.value)
@@ -31,9 +33,6 @@ function Sneakers({data, addToBasket, loading, addToChosen, card}) {
                         {loading
                             ? (<Card
                                     elem={elem}
-                                    addToBasket={addToBasket}
-                                    addToChosen={addToChosen}
-                                    added={card.find(prev => prev.id === elem.id)}
                                 />
                             ) : (
                                 <ContentLoader

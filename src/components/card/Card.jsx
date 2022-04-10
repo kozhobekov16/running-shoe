@@ -1,14 +1,14 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import styles from './Card.module.scss'
 import checked from "../../assets/images/checked.svg"
 import like from '../../assets/images/liked.svg'
+import AppContext from "../../context";
 
-function Card({elem, addToBasket, addToChosen, added}) {
-    const [isAdded, setIsAdded] = React.useState(added)
+function Card({elem}) {
+    const {addToBasket, addToChosen, toggleAddCheck} = useContext(AppContext)
 
     const activeChecked = () => {
         addToBasket(elem)
-        setIsAdded(!isAdded)
     }
     const [heart, setHeart] = useState(like)
 
@@ -35,7 +35,7 @@ function Card({elem, addToBasket, addToChosen, added}) {
                         <img
                             className="w-5"
                             onClick={activeChecked}
-                            src={!isAdded ? "/images/plus.svg" : "/images/checked.svg"}
+                            src={toggleAddCheck(elem.id) ? "/images/checked.svg" : "/images/plus.svg"}
                             alt="plus"
                         />
                     </li>

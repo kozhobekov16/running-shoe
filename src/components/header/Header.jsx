@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import styles from './Header.module.scss'
 import {NavLink} from 'react-router-dom'
+import AppContext from "../../context";
 
-function Header({activeOpenBasket}) {
+function Header() {
+    const {activeOpenBasket} = useContext(AppContext)
     return (
         <div>
             <div className='flex justify-between items-center'>

@@ -1,7 +1,9 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import styles from "./ChoosenCard.module.scss";
 import like from '../../assets/images/liked.svg'
-const ChoosenCard = ({elem, handleUnliked, addToBasket}) => {
+import AppContext from "../../context";
+const ChoosenCard = ({elem}) => {
+    const {handleUnliked, addToBasket} = useContext(AppContext)
     const [heart, setHeart] = useState(like)
     const [checked, setChecked] = useState(false)
     const handleToBasket = () => {

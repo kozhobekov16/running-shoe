@@ -27,9 +27,10 @@
 
   .item {
     box-sizing: border-box;
-    height: 550px;
+    height: 60vh;
     overflow-y: scroll;
-
+    display: flex;
+    flex-direction: column;
     ul {
       display: flex;
       gap: 1rem;

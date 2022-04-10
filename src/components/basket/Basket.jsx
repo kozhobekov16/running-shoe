@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import styles from './Basket.module.scss'
 import Button from "../../UI/Button/Button";
-
-function Basket({closeBasket, card, removeProduct}) {
+import AppContext from "../../context";
+import {SendOrders} from '../../components'
+function Basket() {
+    const {closeBasket, card, removeProduct} = useContext(AppContext)
     return (
         <div className={styles.basket}>
             <div className={styles.basketPlace}>

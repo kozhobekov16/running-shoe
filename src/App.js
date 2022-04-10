@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
 import './App.scss';
-import {Basket, Header} from "./components";
+import {Basket, Card, Header} from "./components";
 import axios from "axios";
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import {Chosen, HomePage} from "./pages";
+import AppContext from "./context";
 
 function App() {
     const [data, setData] = React.useState([])
@@ -56,6 +57,10 @@ function App() {
         setActiveBasket(false)
     }
 
+    const toggleAddCheck = (id) => {
+        return card.find(prev => Number(prev.id) === Number(id))
+    }
+
     const addToChosen = async (elem) => {
         try {
             if (likeCard.find(item => Number(item.id) === Number(elem.id))) {
@@ -71,48 +76,39 @@ function App() {
     }
 
     return (
-        <BrowserRouter>
-            <div className="App">
-                <div className="main">
-                    <Header activeOpenBasket={activeOpenBasket}/>
-                    <Routes>
-                        <Route path='/likes'
-                               element={<Chosen
-                                   data={data}
-                                   likeCard={likeCard}
-                                   data={data}
-                                   setLikeCard={setLikeCard}
-                                   addToBasket={addToBasket}
-                                   handleUnliked={handleUnliked}
-                               />}/>
-                        <Route
-                            path='/'
-                            element={
-                                <HomePage
-                                    data={data}
-                                    addToBasket={addToBasket}
-                                    closeBasket={closeBasket}
-                                    card={card}
-                                    activeBasket={activeBasket}
-                                    setActiveBasket={setActiveBasket}
-                                    addToChosen={addToChosen}
-                                    loading={loading}
-                                />}/>
-                    </Routes>
-                    <div className={activeBasket ? 'basket' : 'noneBasket'}>
-                        <div className="basketChild">
-                            <Basket
-                                setActiveBasket={setActiveBasket}
-                                activeBasket={activeBasket}
-                                closeBasket={closeBasket}
-                                card={card}
-                                removeProduct={removeProduct}
-                            />
+        <AppContext.Provider
+            value={{
+                likeCard,
+                addToBasket,
+                handleUnliked,
+                data,
+                closeBasket,
+                card,
+                activeBasket,
+                setActiveBasket,
+                addToChosen,
+                loading,
+                removeProduct,
+                activeOpenBasket,
+                toggleAddCheck
+            }}>
+            <BrowserRouter>
+                <div className="App">
+                    <div className="main">
+                        <Header/>
+                        <Routes>
+                            <Route path='/likes' element={<Chosen/>}/>
+                            <Route path='/' element={<HomePage/>}/>
+                        </Routes>
+                        <div className={activeBasket ? 'basket' : 'noneBasket'}>
+                            <div className="basketChild">
+                                <Basket/>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </BrowserRouter>
+            </BrowserRouter>
+        </AppContext.Provider>
 
     );
 }

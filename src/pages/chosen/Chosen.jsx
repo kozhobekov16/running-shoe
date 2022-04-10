@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {NavLink} from 'react-router-dom'
 import {ChoosenCard, EmptyChoosen} from "../../components";
+import AppContext from "../../context";
 
-const Chosen = (props) => {
-    const {likeCard, addToBasket, handleUnliked} = props
+const Chosen = () => {
+    const {likeCard} = useContext(AppContext)
     return (
         <div>
             {likeCard.length > 0 ? (
@@ -22,8 +23,6 @@ const Chosen = (props) => {
                                 <ChoosenCard
                                     key={elem.id}
                                     elem={elem}
-                                    handleUnliked={handleUnliked}
-                                    addToBasket={addToBasket}
                                 />
                             </div>
                         ))}
