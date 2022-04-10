@@ -3,11 +3,9 @@ import styles from "./ChoosenCard.module.scss";
 import like from '../../assets/images/liked.svg'
 import AppContext from "../../context";
 const ChoosenCard = ({elem}) => {
-    const {handleUnliked, addToBasket} = useContext(AppContext)
+    const {handleUnliked, addToBasket, toggleAddCheck} = useContext(AppContext)
     const [heart, setHeart] = useState(like)
-    const [checked, setChecked] = useState(false)
     const handleToBasket = () => {
-        setChecked(!checked)
         addToBasket(elem)
     }
     const addToFavorite = (id) => {
@@ -42,7 +40,7 @@ const ChoosenCard = ({elem}) => {
                                     <img
                                         onClick={handleToBasket}
                                         className="w-5"
-                                        src={!checked ? "/images/plus.svg" : "/images/checked.svg"}
+                                        src={toggleAddCheck(elem.id) ? "/images/checked.svg" : "/images/plus.svg"}
                                         alt="plus"
                                     />
                                 </li>
