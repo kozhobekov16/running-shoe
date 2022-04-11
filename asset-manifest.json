@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/running-shoe/static/css/main.d5f451bf.css",
-    "main.js": "/running-shoe/static/js/main.20394223.js",
+    "main.js": "/running-shoe/static/js/main.a8af0aca.js",
     "static/js/787.536e98c6.chunk.js": "/running-shoe/static/js/787.536e98c6.chunk.js",
     "static/media/liked.svg": "/running-shoe/static/media/liked.4a3f5f26fb870a438a45b4df94ba1969.svg",
     "index.html": "/running-shoe/index.html",
     "main.d5f451bf.css.map": "/running-shoe/static/css/main.d5f451bf.css.map",
-    "main.20394223.js.map": "/running-shoe/static/js/main.20394223.js.map",
+    "main.a8af0aca.js.map": "/running-shoe/static/js/main.a8af0aca.js.map",
     "787.536e98c6.chunk.js.map": "/running-shoe/static/js/787.536e98c6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d5f451bf.css",
-    "static/js/main.20394223.js"
+    "static/js/main.a8af0aca.js"
   ]
 }
