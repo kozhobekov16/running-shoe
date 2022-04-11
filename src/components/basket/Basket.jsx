@@ -5,7 +5,7 @@ import AppContext from "../../context";
 import {InfoEmpty, InfoOrder} from "../../components";
 
 function Basket() {
-    const {closeBasket, card, removeProduct, handleToggleOrder} = useContext(AppContext)
+    const {closeBasket, card, removeProduct, handleToggleOrder, totalPrice, fivePro} = useContext(AppContext)
     return (
         <div className={styles.basket}>
             {handleToggleOrder ? (
@@ -48,12 +48,12 @@ function Basket() {
                             <ul>
                                 <li>Итого:</li>
                                 <li></li>
-                                <li>21 498 руб.</li>
+                                <li>{totalPrice} руб.</li>
                             </ul>
                             <ul>
                                 <li>Налог 5%:</li>
                                 <li></li>
-                                <li>1074 руб.</li>
+                                <li>{fivePro} руб.</li>
                             </ul>
                             <Button/>
                         </div>

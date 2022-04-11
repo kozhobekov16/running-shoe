@@ -5,7 +5,6 @@ import AppContext from "../../context";
 
 function Header() {
     const {activeOpenBasket, totalPrice} = useContext(AppContext)
-    
     return (
         <div>
             <div className='flex justify-between items-center'>
@@ -42,9 +41,6 @@ function Header() {
                                     className={styles.heart}
                                 />
                             </NavLink>
-                        </li>
-                        <li>
-                            <img src="/images/user.svg" alt="user"/>
                         </li>
                     </ul>
                 </div>

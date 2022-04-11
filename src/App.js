@@ -40,14 +40,24 @@ function App() {
             console.log(e)
         }
     }
-    const removeProduct = (id) => {
-        axios.delete(`https://62402a320adaf66ad74a7eba.mockapi.io/inBasket/${id}`)
-        setCard(prev => prev.filter(elem => elem.id !== id))
+    const removeProduct = async (id) => {
+        try {
+            setCard(prev => prev.filter(elem => elem.id !== id))
+            await axios.delete(`https://62402a320adaf66ad74a7eba.mockapi.io/inBasket/${id}`)
+        }
+        catch {
+            alert('Ошибка при удалении')
+        }
     }
 
-    const handleUnliked = (id) => {
-        axios.delete(`https://62402a320adaf66ad74a7eba.mockapi.io/likes/${id}`)
-        setLikeCard(prev => prev.filter(item => item.id !== id))
+    const handleUnliked = async (id) => {
+        try {
+            setLikeCard(prev => prev.filter(item => item.id !== id))
+            await axios.delete(`https://62402a320adaf66ad74a7eba.mockapi.io/likes/${id}`)
+        }
+        catch {
+            alert('Ошибка при удалении')
+        }
     }
 
     const activeOpenBasket = () => {
@@ -67,7 +77,11 @@ function App() {
         setHandleToggleOrder(true)
     }
 
-    const totalPrice = card.reduce((name, obj) => obj.price + name, 0)
+    const totalPrice = card.reduce((total, totalPrice) => {
+        return total + totalPrice.price
+    }, 0)
+
+    const fivePro = Math.trunc(totalPrice / 100 * 5)
 
     const addToChosen = async (elem) => {
         try {
@@ -101,7 +115,8 @@ function App() {
                 toggleAddCheck,
                 handleOrder,
                 handleToggleOrder,
-                totalPrice
+                totalPrice,
+                fivePro
             }}>
             <BrowserRouter>
                 <div className="App">
