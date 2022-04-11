@@ -4,7 +4,8 @@ import {NavLink} from 'react-router-dom'
 import AppContext from "../../context";
 
 function Header() {
-    const {activeOpenBasket} = useContext(AppContext)
+    const {activeOpenBasket, totalPrice} = useContext(AppContext)
+    
     return (
         <div>
             <div className='flex justify-between items-center'>
@@ -29,7 +30,7 @@ function Header() {
                         <img onClick={activeOpenBasket} src="/images/basket.svg" alt="basket"/>
                     </span>
                         <span>
-                            <p className="text-sm">1205 руб.</p>
+                            <p className="text-sm">{totalPrice} руб.</p>
                         </span>
                     </div>
                     <ul className="p-0 flex gap-4">

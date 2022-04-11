@@ -2,12 +2,15 @@ import React, {useContext} from 'react'
 import styles from './Basket.module.scss'
 import Button from "../../UI/Button/Button";
 import AppContext from "../../context";
-import {SendOrders} from '../../components'
+import {InfoEmpty, InfoOrder} from "../../components";
+
 function Basket() {
-    const {closeBasket, card, removeProduct} = useContext(AppContext)
+    const {closeBasket, card, removeProduct, handleToggleOrder} = useContext(AppContext)
     return (
         <div className={styles.basket}>
-            <div className={styles.basketPlace}>
+            {handleToggleOrder ? (
+                <InfoOrder/>
+            ) : (<div className={styles.basketPlace}>
                 <div>
                     <div className={styles.title}>
                         <div>
@@ -28,26 +31,14 @@ function Basket() {
                                         <b>{cardItem.price}</b>
                                     </li>
                                     <li>
-                                        <img onClick={() => removeProduct(cardItem.id)} src="/images/plus.svg" alt="plus"/>
+                                        <img onClick={() => removeProduct(cardItem.id)} src="/images/plus.svg"
+                                             alt="plus"/>
                                     </li>
                                 </ul>
                             ))}
                         </div>
                         :
-                        <div className={styles.empty}>
-                            <div>
-                                <img src='/images/basketEmpty.png' alt="empty"/>
-                            </div>
-                            <div
-                                className={styles.return}
-                                onClick={closeBasket}
-                            >
-                                <img src="/images/Left.svg" alt=""/>
-                                <button>
-                                    Вернуться назад
-                                </button>
-                            </div>
-                        </div>
+                        <InfoEmpty/>
                     }
                 </div>
                 {
@@ -69,8 +60,7 @@ function Basket() {
                         :
                         null
                 }
-            </div>
-
+            </div>)}
         </div>
     )
 }

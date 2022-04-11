@@ -1,9 +1,11 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import './Button.scss'
+import AppContext from "../../context";
 function Button() {
+    const {handleOrder} = useContext(AppContext)
     return(
         <div className="button">
-            <button>
+            <button onClick={handleOrder}>
                 Оформить заказ
             </button>
         </div>

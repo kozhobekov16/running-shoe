@@ -1,0 +1,31 @@
+.empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 5rem;
+  text-align: center;
+
+  .return {
+    button {
+      background-color: #9DD458;
+      position: relative;
+      margin-top: 5rem;
+      color: white;
+      padding: 8px 30px;
+      outline: none;
+      border-radius: 10px;
+
+      &:hover {
+        transition: .4s;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+      }
+      img {
+        top: 1rem;
+        left: .5rem;
+        width: 15px;
+        position: absolute;
+      }
+    }
+  }
+}

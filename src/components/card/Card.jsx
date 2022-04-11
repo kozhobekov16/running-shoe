@@ -1,6 +1,5 @@
 import React, {useContext, useState} from 'react'
 import styles from './Card.module.scss'
-import checked from "../../assets/images/checked.svg"
 import like from '../../assets/images/liked.svg'
 import AppContext from "../../context";
 
@@ -29,7 +28,7 @@ function Card({elem}) {
                 <ul className={`${styles.price} p-0 pt-3 flex items-center justify-between`}>
                     <li>
                         <p>Цена:</p>
-                        <strong>{elem.price}</strong>
+                        <strong>{elem.price} руб</strong>
                     </li>
                     <li>
                         <img

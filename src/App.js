@@ -11,6 +11,7 @@ function App() {
     const [card, setCard] = React.useState([])
     const [likeCard, setLikeCard] = useState([])
     const [loading, setLoading] = useState(false)
+    const [handleToggleOrder, setHandleToggleOrder] = useState(false)
 
     React.useEffect(() => {
         axios.get('https://62402a320adaf66ad74a7eba.mockapi.io/sneakers')
@@ -61,6 +62,13 @@ function App() {
         return card.find(prev => Number(prev.id) === Number(id))
     }
 
+    const handleOrder = () => {
+        setCard([])
+        setHandleToggleOrder(true)
+    }
+
+    const totalPrice = card.reduce((name, obj) => obj.price + name, 0)
+
     const addToChosen = async (elem) => {
         try {
             if (likeCard.find(item => Number(item.id) === Number(elem.id))) {
@@ -90,7 +98,10 @@ function App() {
                 loading,
                 removeProduct,
                 activeOpenBasket,
-                toggleAddCheck
+                toggleAddCheck,
+                handleOrder,
+                handleToggleOrder,
+                totalPrice
             }}>
             <BrowserRouter>
                 <div className="App">

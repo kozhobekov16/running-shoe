@@ -61,44 +61,6 @@
     }
   }
 
-  .empty {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 5rem;
-    text-align: center;
-
-    img {
-      width: 300px;
-    }
-
-    .return {
-      position: relative;
-
-      img {
-        top: 6rem;
-        left: .7rem;
-        width: 15px;
-        position: absolute;
-      }
-
-      button {
-        background-color: #9DD458;
-        margin-top: 5rem;
-        color: white;
-        padding: 8px 30px;
-        outline: none;
-        border-radius: 10px;
-
-        &:hover {
-          transition: .4s;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-        }
-      }
-    }
-  }
-
   .basketPlace {
     display: flex;
     flex-direction: column;
